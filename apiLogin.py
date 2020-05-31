@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dbUsuario import dbUser
 import time
-p = dbUser('facensapi.cosjyxwgwckw.sa-east-1.rds.amazonaws.com','postgres','V!ctor01','facensapi')
+p = dbUser('postgresql-9732-0.cloudclusters.net','facens','V!ctor01','facensapi')
 #import requests
 app = Flask(__name__)
 CORS(app)
