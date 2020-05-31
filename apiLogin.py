@@ -2,14 +2,14 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dbUsuario import dbUser
 import time
-p = dbUser('us-cdbr-east-06.cleardb.net','b13febca5980fe','9c4ead86','heroku_a23d77c529f2361')
+p = dbUser('facensapi.cosjyxwgwckw.sa-east-1.rds.amazonaws.com','postgres','V!ctor01','facensapi')
 #import requests
 app = Flask(__name__)
 CORS(app)
 
 @app.route("/", methods=["GET"])
 def home():
-    return 'Seja bem vindo ao revendooAPI'
+    return 'Facens API Healthy Safe'
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -37,7 +37,7 @@ def login():
     else:
         return jsonify({'aguardando':'Parametros'})
 
-@app.route("/cadastroUsuario", methods=["POST"])
+@app.route("/cadastro", methods=["POST"])
 def cadastroUsuario():
     dados = request.get_json(force=True)
     nome = dados['nome']
