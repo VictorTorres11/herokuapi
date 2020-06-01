@@ -50,13 +50,13 @@ class dbUser:
     sql = "DELETE FROM usuario WHERE PK_USUARIO=%s;"%iD
     self.mycursor.execute(sql)
     self.mydb.commit()
-    print(self.mycursor.rowcount, "Usuário deletado")
+    print(self.mycursor.rowcount, "Usuario deletado")
 
   def updateUsuario(self,iD,nome,email,telefone,empresa,senha):
     sql = "UPDATE USUARIO SET NOME = %s, TELEFONE=%s, EMAIL=%s, EMPRESA =%s, SENHA=%s WHERE PK_USUARIO ="+str(iD)
     self.mycursor.execute(sql)
     self.mydb.commit()
-    print(self.mycursor.rowcount, "Usuário Atualizado")
+    print(self.mycursor.rowcount, "Usuario Atualizado")
 
   def loginUsuario(self,email,senha):
     print(email, senha)
