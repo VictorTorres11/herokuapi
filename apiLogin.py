@@ -41,18 +41,18 @@ def login():
 def cadastroUsuario():
     dados = request.get_json(force=True)
     nome = dados['nome']
-    telefone = dados['telefone']
     email = dados['email']
-    cpf = dados['cpf']
+    telefone = dados['telefone']
+    empresa = dados['empresa']
     senha = dados['senha']
     print(dados)
-    print(nome,telefone,email,cpf,senha)
+    print(nome,email,telefone,empresa,senha)
     try:
-        findEmail = p.findUsuario_by_CPF(cpf)
+        findEmail = p.findUsuario_by_EMAIL(email)
         if len(findEmail) == 0:
-            p.insertUsuario(nome,telefone,email,senha,cpf)
+            p.insertUsuario(nome,email,telefone,empresa,senha)
             time.sleep(5)
-            res = p.findUsuario_by_CPF(cpf)
+            res = p.findUsuario_by_EMAIL(email)
             iD = res[0]
             return jsonify({'mensagem':'Cadastro feito com sucesso','id':str(iD[0])})
         else:
